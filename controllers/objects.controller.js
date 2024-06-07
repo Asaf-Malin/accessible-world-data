@@ -3,7 +3,7 @@ const tableName = "objects";
 
 exports.createObject = async (req, res) => {
   knex(tableName)
-    .insert({})
+    .insert({name: req.body.name, creator: req.body.creator})
     .then((row) => {
       if (row > 0) {
         return res.status(200).send({createId: row[0]});

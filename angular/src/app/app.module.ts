@@ -9,6 +9,7 @@ import { AboutComponent } from './about/about/about.component';
 import { ObjectsComponent } from './objects/objects/objects.component';
 import { HeaderComponent } from './about/header/header.component';
 import { FooterComponent } from './about/footer/footer.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FooterComponent } from './about/footer/footer.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

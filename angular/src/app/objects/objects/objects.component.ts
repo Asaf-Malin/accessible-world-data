@@ -8,6 +8,8 @@ import { ObjectsService } from '../shared/services/objects-service';
 })
 export class ObjectsComponent {
   public currentObjects: any[] = [];
+  public name: string = '';
+  public creator: string = '';
 
   constructor(
     public objectsService: ObjectsService,
@@ -21,5 +23,11 @@ export class ObjectsComponent {
 
   printJSON(object: any){
     return JSON.stringify(object);
+  }
+
+  addObject(){
+    this.objectsService.createObject({name: this.name, creator: this.creator}).subscribe((data)=>{
+      debugger
+    });
   }
 }

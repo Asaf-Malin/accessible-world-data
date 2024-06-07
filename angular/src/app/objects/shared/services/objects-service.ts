@@ -14,4 +14,8 @@ export class ObjectsService {
   getObjects() {
     return this.http.get<IObject[]>(environment.apiEndPoint + 'getObjects');
   }
+
+  createObject(data: {name: string, creator: string}){
+    return this.http.post(environment.apiEndPoint + 'createObject', data);
+  }
 }
