@@ -10,6 +10,7 @@ import { Lexeme } from "../shared/models/lexeme";
 export class LexemesComponent {
   public currentLexeme: Lexeme = this.getEmptyLexeme();
   public searchTerm: string = "";
+  public afterSearch: boolean = false;
 
   constructor(public lexemesService: LexemesService) {}
 
@@ -43,6 +44,7 @@ export class LexemesComponent {
   search() {
     this.lexemesService.searchLexeme(this.searchTerm).subscribe((data) => {
       this.currentLexeme = data;
+      this.afterSearch = true;
     });
   }
 

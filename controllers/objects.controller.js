@@ -30,13 +30,11 @@ exports.getLexeme = async (req, res) => {
   knex(tableName)
   .where({ lexemeWithVowels: req.query.searchTerm })
   .first()
-  .then((objects) => {
-      if (!objects) {
-        res.status(401).json({
-          message: "failed getting lexeme from db",
-        });
+  .then((lexeme) => {
+      if (!lexeme) {
+        res.status(200).json({});
       } else {
-        res.status(200).json(objects);
+        res.status(200).json(lexeme);
       }
     });
 };
