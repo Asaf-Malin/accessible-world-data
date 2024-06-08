@@ -1,24 +1,3 @@
 <div>
-    to add new object:
-    <br>
-    Object name:
-    <br>
-    <input [(ngModel)]="name">
-    <br>
-    Creator:
-    <br>
-    <input [(ngModel)]="creator">
-    <br><br>
-    <button (click)="addObject()">Add</button>
-    <br><br>
 
-    to get a list of all the current objects 
-    <button (click)="getObjects()">Click here!</button>
-
-    <div>
-        here is the list of all the objects:
-        <div *ngFor="let object of currentObjects">
-            {{printJSON(object)}}
-        </div>
-    </div>
 </div>

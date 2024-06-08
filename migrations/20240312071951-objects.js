@@ -16,18 +16,93 @@ exports.setup = function (options, seedLink) {
 
 exports.up = function (db, callback) {
   db.createTable(
-    "objects",
+    "lexemes",
     {
       id: {
         type: "int",
         primaryKey: true,
         autoIncrement: true,
       },
-      name: {
+      lexemeWithVowels: {
         type: "string",
         length: 400,
       },
-      creator: {
+      lexemeWithoutVowels: {
+        type: "string",
+        length: 400,
+      },
+      partOfSpeech: {
+        type: "string",
+        length: 400,
+      },
+      gender: {
+        type: "int",
+      },
+      exampleSentence1: {
+        type: "string",
+        length: 400,
+      },
+      exampleSentence2: {
+        type: "string",
+        length: 400,
+      },
+      translation1He: {
+        type: "string",
+        length: 400,
+      },
+      translation1En: {
+        type: "string",
+        length: 400,
+      },
+      translation2He: {
+        type: "string",
+        length: 400,
+      },
+      translation2En: {
+        type: "string",
+        length: 400,
+      },
+      translation3He: {
+        type: "string",
+        length: 400,
+      },
+      translation3En: {
+        type: "string",
+        length: 400,
+      },
+      translation2He: {
+        type: "string",
+        length: 400,
+      },
+      plural1: {
+        type: "string",
+        length: 400,
+      },
+      plural2: {
+        type: "string",
+        length: 400,
+      },
+      pluralBroken: {
+        type: "string",
+        length: 400,
+      },
+      pluralOfPlural: {
+        type: "string",
+        length: 400,
+      },
+      sourceForm: {
+        type: "string",
+        length: 400,
+      },
+      femaleForm: {
+        type: "string",
+        length: 400,
+      },
+      doubleForm: {
+        type: "string",
+        length: 400,
+      },
+      articleForm: {
         type: "string",
         length: 400,
       },
