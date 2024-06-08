@@ -11,7 +11,7 @@ export class LexemesComponent {
   public currentLexeme: Lexeme = this.getEmptyLexeme();
   public searchTerm: string = "";
 
-  constructor(public objectsService: LexemesService) {}
+  constructor(public lexemesService: LexemesService) {}
 
   getEmptyLexeme(){
     return {
@@ -41,7 +41,7 @@ export class LexemesComponent {
   }
 
   search() {
-    this.objectsService.searchLexeme(this.searchTerm).subscribe((data) => {
+    this.lexemesService.searchLexeme(this.searchTerm).subscribe((data) => {
       this.currentLexeme = data;
     });
   }
