@@ -28,4 +28,12 @@
     <br>צורת יידוע: <input [(ngModel)]="currentLexeme.articleForm">
     <br>מקור ההגדרה: <input [(ngModel)]="currentLexeme.source">
   </div>
+
+  <div>
+    העלאת טבלה - העתק את הטבלה כטקסט לאזור העריכה ולאחר מכן שייך עמודות
+    <textarea [(ngModel)]="tableToUpload">
+
+    </textarea>
+    <button (click)="matchColumns()">שיוך עמודות</button>
+  </div>
 </div>

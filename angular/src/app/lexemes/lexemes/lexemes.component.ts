@@ -11,6 +11,7 @@ export class LexemesComponent {
   public currentLexeme: Lexeme = this.getEmptyLexeme();
   public searchTerm: string = "";
   public afterSearch: boolean = false;
+  public tableToUpload: string = "";
 
   constructor(public lexemesService: LexemesService) {}
 
@@ -49,4 +50,7 @@ export class LexemesComponent {
     });
   }
 
+  matchColumns(){
+    alert('טרם מומש');
+  }
 }
