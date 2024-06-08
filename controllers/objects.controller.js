@@ -28,12 +28,12 @@ exports.getObject = async (req, res) => {
 
 exports.getLexeme = async (req, res) => {
   knex(tableName)
-  .where({ lexemeWithVowels: req.query.search })
+  .where({ lexemeWithVowels: req.query.searchTerm })
   .first()
   .then((objects) => {
       if (!objects) {
         res.status(401).json({
-          message: "failed getting child from db",
+          message: "failed getting lexeme from db",
         });
       } else {
         res.status(200).json(objects);
