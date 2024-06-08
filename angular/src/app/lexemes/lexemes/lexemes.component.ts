@@ -37,6 +37,7 @@ export class LexemesComponent {
       femaleForm: '',
       doubleForm: '',
       articleForm: '',
+      source: '',
       creation: '',
     }
   }
