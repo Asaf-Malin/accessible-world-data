@@ -46,9 +46,4 @@ export class LexemesComponent {
     });
   }
 
-  printJSON(object: any) {
-    return JSON.stringify(object);
-  }
-
-  
 }

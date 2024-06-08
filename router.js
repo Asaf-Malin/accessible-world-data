@@ -7,7 +7,7 @@ const { upload } = require("./controllers/upload.controller");
 const {
   createObject,
   getObject,
-  getObjects,
+  getLexeme,
 } = require("./controllers/objects.controller");
 
 router.post("/login", loginAndValidation);
@@ -28,9 +28,9 @@ router.get("/getObject", (req, res) => {
 });
 
 
-router.get("/getObjects", (req, res) => {
+router.get("/getLexeme", (req, res) => {
   if (checkAuth(req, res)) {
-    return getObjects(req, res);
+    return getLexeme(req, res);
   }
 });
 

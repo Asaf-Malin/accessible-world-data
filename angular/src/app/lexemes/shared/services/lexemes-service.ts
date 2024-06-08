@@ -11,8 +11,8 @@ export class LexemesService {
 
   constructor(private http: HttpClient) {}
 
-  searchLexeme(search: string) {
-    return this.http.get<Lexeme>(environment.apiEndPoint + 'getLexeme/' + search);
+  searchLexeme(searchTerm: string) {
+    return this.http.get<Lexeme>(environment.apiEndPoint + 'getLexeme/?searchTerm=' + searchTerm);
   }
 
   createObject(data: {name: string, creator: string}){

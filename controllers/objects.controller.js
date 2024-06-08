@@ -26,9 +26,10 @@ exports.getObject = async (req, res) => {
     });
 };
 
-exports.getObjects = async (req, res) => {
+exports.getLexeme = async (req, res) => {
   knex(tableName)
-  .orderBy("id")
+  .where({ lexemeWithVowels: req.query.search })
+  .first()
   .then((objects) => {
       if (!objects) {
         res.status(401).json({
