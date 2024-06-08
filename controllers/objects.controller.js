@@ -1,5 +1,5 @@
 const knex = require("../dbConnection");
-const tableName = "objects";
+const tableName = "lexemes";
 
 exports.createObject = async (req, res) => {
   knex(tableName)

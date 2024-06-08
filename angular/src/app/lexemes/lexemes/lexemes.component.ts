@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { ObjectsService } from '../shared/services/objects-service';
 
 @Component({
-  selector: 'app-objects',
-  templateUrl: './objects.component.html',
-  styleUrls: ['./objects.component.scss']
+  selector: 'app-lexemes',
+  templateUrl: './lexemes.component.html',
+  styleUrls: ['./lexemes.component.scss']
 })
 export class ObjectsComponent {
   public currentObjects: any[] = [];
