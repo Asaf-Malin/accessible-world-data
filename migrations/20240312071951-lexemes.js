@@ -102,6 +102,10 @@ exports.up = function (db, callback) {
         type: "string",
         length: 400,
       },
+      source: {
+        type: "string",
+        length: 400,
+      },
       creation: {
         type: "timestamp",
         defaultValue: new String("CURRENT_TIMESTAMP"),
