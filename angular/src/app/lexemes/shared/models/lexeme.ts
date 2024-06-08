@@ -20,5 +20,6 @@ export interface Lexeme {
     femaleForm: string;
     doubleForm: string;
     articleForm: string;
+    source: string;
     creation: string;
 }
