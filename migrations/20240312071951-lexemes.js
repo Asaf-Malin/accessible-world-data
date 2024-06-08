@@ -70,10 +70,6 @@ exports.up = function (db, callback) {
         type: "string",
         length: 400,
       },
-      translation2He: {
-        type: "string",
-        length: 400,
-      },
       plural1: {
         type: "string",
         length: 400,

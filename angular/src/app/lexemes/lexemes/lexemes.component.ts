@@ -1,33 +1,54 @@
-import { Component } from '@angular/core';
-import { ObjectsService } from '../shared/services/objects-service';
+import { Component } from "@angular/core";
+import { LexemesService } from "../shared/services/lexemes-service";
+import { Lexeme } from "../shared/models/lexeme";
 
 @Component({
-  selector: 'app-lexemes',
-  templateUrl: './lexemes.component.html',
-  styleUrls: ['./lexemes.component.scss']
+  selector: "app-lexemes",
+  templateUrl: "./lexemes.component.html",
+  styleUrls: ["./lexemes.component.scss"],
 })
-export class ObjectsComponent {
-  public currentObjects: any[] = [];
-  public name: string = '';
-  public creator: string = '';
+export class LexemesComponent {
+  public currentLexeme: Lexeme = this.getEmptyLexeme();
+  public searchTerm: string = "";
 
-  constructor(
-    public objectsService: ObjectsService,
-  ) {}
+  constructor(public objectsService: LexemesService) {}
 
-  getObjects(){
-    this.objectsService.getObjects().subscribe((data)=>{
-      this.currentObjects = data;
+  getEmptyLexeme(){
+    return {
+      id: 0,
+      lexemeWithVowels: '',
+      lexemeWithoutVowels: '',
+      partOfSpeech: '',
+      gender: '',
+      exampleSentence1: '',
+      exampleSentence2: '',
+      translation1He: '',
+      translation1En: '',
+      translation2He: '',
+      translation2En: '',
+      translation3He: '',
+      translation3En: '',
+      plural1: '',
+      plural2: '',
+      pluralBroken: '',
+      pluralOfPlural: '',
+      sourceForm: '',
+      femaleForm: '',
+      doubleForm: '',
+      articleForm: '',
+      creation: '',
+    }
+  }
+
+  search() {
+    this.objectsService.searchLexeme(this.searchTerm).subscribe((data) => {
+      this.currentLexeme = data;
     });
   }
 
-  printJSON(object: any){
+  printJSON(object: any) {
     return JSON.stringify(object);
   }
 
-  addObject(){
-    this.objectsService.createObject({name: this.name, creator: this.creator}).subscribe((data)=>{
-      debugger
-    });
-  }
+  
 }
