@@ -12,6 +12,8 @@ export class LexemesComponent {
   public searchTerm: string = "";
   public afterSearch: boolean = false;
   public tableToUpload: string = "";
+  public topLine: string[] = [];
+  public secondLine: string[] = [];
 
   constructor(public lexemesService: LexemesService) {}
 
@@ -52,6 +54,16 @@ export class LexemesComponent {
 
   matchColumns(){
     this.tableToUpload;
-    debugger
+    let contents = [];
+    for(let line of this.tableToUpload.split('\n')){
+      let lineContent = [];
+      for(let cell of line.split('\t')){
+        lineContent.push(cell);
+      }
+      contents.push(lineContent);
+    }
+
+    this.topLine = contents[0];
+    this.secondLine = contents[1];
   }
 }

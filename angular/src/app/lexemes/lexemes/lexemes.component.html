@@ -34,5 +34,11 @@
     <textarea width="600" [(ngModel)]="tableToUpload"></textarea>
     <br>
     <button (click)="matchColumns()">שיוך עמודות</button>
+    <br>
+    <div *ngIf="topLine.length">
+      <div *ngFor="let column of topLine; let i = index">
+        {{column}}
+      </div>
+    </div>
   </div>
 </div>
