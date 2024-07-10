@@ -51,6 +51,7 @@ export class LexemesComponent {
   }
 
   matchColumns(){
-    alert('טרם מומש');
+    this.tableToUpload;
+    debugger
   }
 }
