@@ -14,6 +14,10 @@ export class LexemesComponent {
   public tableToUpload: string = "";
   public topLine: string[] = [];
   public secondLine: string[] = [];
+  public possibleColumns: string[] = [
+    
+  ];
+
 
   constructor(public lexemesService: LexemesService) {}
 

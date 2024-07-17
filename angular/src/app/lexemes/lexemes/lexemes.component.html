@@ -35,9 +35,24 @@
     <br>
     <button (click)="matchColumns()">שיוך עמודות</button>
     <br>
-    <div *ngIf="topLine.length">
-      <div *ngFor="let column of topLine; let i = index">
-        {{column}}
+    <div style="display: flex;">
+      <div *ngIf="topLine.length">
+        שם עמודה:
+        <div class="cell" *ngFor="let column of topLine; let i = index">
+          {{column ? column : '&nbsp;'}}
+        </div>
+      </div>
+      <div *ngIf="secondLine.length">
+        תוכן שורה ראשונה:
+        <div class="cell" *ngFor="let column of secondLine; let i = index">
+          {{column ? column : '&nbsp;'}}
+        </div>
+      </div>
+      <div *ngIf="secondLine.length">
+        שיוך:
+        <div class="cell" *ngFor="let column of secondLine; let i = index">
+          {{column ? column : '&nbsp;'}}
+        </div>
       </div>
     </div>
   </div>
