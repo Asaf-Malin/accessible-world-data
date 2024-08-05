@@ -50,8 +50,10 @@
       </div>
       <div *ngIf="secondLine.length">
         שיוך:
-        <div class="cell" *ngFor="let column of secondLine; let i = index">
-          {{column ? column : '&nbsp;'}}
+        <div class="cell" *ngFor="let column of topLine; let i = index">
+          <select>
+            <option *ngFor="let possibleColumn of possibleColumns" [value]="column">{{possibleColumn}}</option>
+          </select>
         </div>
       </div>
     </div>
