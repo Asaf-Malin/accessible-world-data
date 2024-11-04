@@ -17,7 +17,4 @@ export class LexemesService {
     );
   }
 
-  createObject(data: { name: string; creator: string }) {
-    return this.http.post(environment.apiEndPoint + "createObject", data);
-  }
 }

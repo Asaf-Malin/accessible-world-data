@@ -5,10 +5,9 @@ const { signupAndValidation, loginAndValidation } = require("./validation");
 const checkAuth = require("./middleware/check-auth");
 const { upload } = require("./controllers/upload.controller");
 const {
-  createObject,
-  getObject,
   getLexeme,
-} = require("./controllers/objects.controller");
+  createLexeme
+} = require("./controllers/lexemes.controller");
 
 router.post("/login", loginAndValidation);
 router.post("/signup", signupAndValidation);
@@ -21,22 +20,15 @@ router.post("/upload", (req, res) => {
   }
 });
 
-router.get("/getObject", (req, res) => {
-  if (checkAuth(req, res)) {
-    return getObject(req, res);
-  }
-});
-
-
 router.get("/getLexeme", (req, res) => {
   if (checkAuth(req, res)) {
     return getLexeme(req, res);
   }
 });
 
-router.post("/createObject", (req, res) => {
+router.get("/createLexeme", (req, res) => {
   if (checkAuth(req, res)) {
-    return createObject(req, res);
+    return createLexeme(req, res);
   }
 });
 
