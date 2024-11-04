@@ -1,4 +1,4 @@
-<div>
+<div class="container">
   <br />
 
   חיפוש מילה:
@@ -7,7 +7,7 @@
 
   <div *ngIf="afterSearch">
     <div *ngFor="let column of possibleColumns">
-      <span>{{column.value}}: </span>
+      <div>{{column.value}}: </div>
       <input [(ngModel)]="currentLexeme[column.key]" />
     </div>
   </div>

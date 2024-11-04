@@ -17,4 +17,10 @@ export class LexemesService {
     );
   }
 
+  createLexemes(lexemes: Lexeme[]) {
+    return this.http.post<Lexeme[]>(
+      environment.apiEndPoint + "createLexemes", lexemes
+    );
+  }
+
 }

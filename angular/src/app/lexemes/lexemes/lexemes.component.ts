@@ -78,7 +78,11 @@ export class LexemesComponent {
       alert('nothing to upload');
     }
 
-    let wordsDefinitions: KeyValue[][] = [];
+    if(!this.matchedColumns.length){
+      alert('matching columns not set');
+    }
+
+    let newLexemes: Lexeme[] = [];
     let lineIndex = 0;
     for(let line of this.tableData){
       lineIndex++;
@@ -88,18 +92,19 @@ export class LexemesComponent {
       }
 
       let columnIndex = 0;
-      let word: KeyValue[] = [];
+      let newLexeme: any = this.getEmptyLexeme();
+
       for(let column of line){
         if(this.matchedColumns[columnIndex]){
-          let definition: KeyValue = {
-            key: this.matchedColumns[columnIndex],
-            value: column,
-          };
-          word.push(definition);
+          newLexeme[this.matchedColumns[columnIndex]] = column;
         }
         columnIndex++;
       }
-      wordsDefinitions.push(word);
+      newLexemes.push(newLexeme);
     }
+
+    this.lexemesService.createLexemes(newLexemes).subscribe((data) => {
+      alert('success');
+    });
   }
 }

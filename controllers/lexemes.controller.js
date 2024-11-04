@@ -14,7 +14,10 @@ exports.getLexeme = async (req, res) => {
     });
 };
 
-exports.createLexeme = async (req, res) => {
+exports.createLexemes = async (req, res) => {
+  for(let lexeme of req.body){
+    lexeme.creation = new Date();
+  }
   knex(tableName)
     .insert(req.body)
     .then((row) => {

@@ -36,7 +36,8 @@ exports.up = function (db, callback) {
         length: 400,
       },
       gender: {
-        type: "int",
+        type: "string",
+        length: 400,
       },
       exampleSentence1: {
         type: "string",
