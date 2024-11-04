@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiEndPoint: "https://asafmalin.online/api/",
+  apiEndPoint: "https://hebarabdict.xyz/api/",
 };
