@@ -77,7 +77,6 @@ export class LexemesComponent {
   }
 
   matchColumns() {
-    this.tableToUpload;
     let contents = [];
     for (let line of this.tableToUpload.split("\n")) {
       let lineContent = [];
