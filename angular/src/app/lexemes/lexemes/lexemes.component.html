@@ -51,11 +51,13 @@
       <div *ngIf="secondLine.length">
         שיוך:
         <div class="cell" *ngFor="let column of topLine; let i = index">
-          <select>
+          <select class="possibleColumn">
             <option *ngFor="let possibleColumn of possibleColumns" [value]="column">{{possibleColumn}}</option>
           </select>
         </div>
       </div>
     </div>
+    <br>
+    <button *ngIf="secondLine.length">העלאה</button>
   </div>
 </div>

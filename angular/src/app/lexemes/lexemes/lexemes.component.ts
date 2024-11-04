@@ -15,6 +15,7 @@ export class LexemesComponent {
   public topLine: string[] = [];
   public secondLine: string[] = [];
   public possibleColumns: string[] = [
+    'בחר',
     'לקסמה עם ניקוד',
     'לקסמה בלי ניקוד',
     'חלק דיבר',
@@ -36,7 +37,6 @@ export class LexemesComponent {
     'צורת מקור',
     'צורת נקבה',
     'צורת זוגי',
-    
   ];
 
 
