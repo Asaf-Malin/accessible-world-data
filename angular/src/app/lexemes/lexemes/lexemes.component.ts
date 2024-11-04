@@ -73,6 +73,12 @@ export class LexemesComponent {
     this.secondLine = this.tableData[1];
   }
 
+  updateLexeme(){
+    this.lexemesService.updateLexeme(this.currentLexeme).subscribe((data) => {
+      alert('success');
+    });
+  }
+
   upload() {
     if(!this.tableData.length){
       alert('nothing to upload');

@@ -26,3 +26,15 @@ exports.createLexemes = async (req, res) => {
       }
   });
 };
+
+exports.updateLexeme = async (req, res) => {
+  req.body.creation = new Date();
+  knex(tableName)
+    .where({ id: req.body.id })
+    .update(req.body)
+    .then((row) => {
+      if (row > 0) {
+        return res.status(200).send({createId: row[0]});
+      }
+  });
+};

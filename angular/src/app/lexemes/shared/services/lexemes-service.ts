@@ -23,4 +23,10 @@ export class LexemesService {
     );
   }
 
+  updateLexeme(lexeme: Lexeme) {
+    return this.http.post<Lexeme[]>(
+      environment.apiEndPoint + "updateLexeme", lexeme
+    );
+  }
+
 }
