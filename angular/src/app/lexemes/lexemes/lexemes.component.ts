@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import { LexemesService } from "../shared/services/lexemes-service";
 import { Lexeme } from "../shared/models/lexeme";
+import { KeyValue } from "../shared/models/key-value";
+import { possibleColumns } from "../shared/objects";
 
 @Component({
   selector: "app-lexemes",
@@ -8,36 +10,15 @@ import { Lexeme } from "../shared/models/lexeme";
   styleUrls: ["./lexemes.component.scss"],
 })
 export class LexemesComponent {
-  public currentLexeme: Lexeme = this.getEmptyLexeme();
+  public currentLexeme: any = this.getEmptyLexeme();
   public searchTerm: string = "";
   public afterSearch: boolean = false;
-  public tableToUpload: string = "";
+  public tableStr: string = "";
+  public tableData: string[][] = [];
   public topLine: string[] = [];
   public secondLine: string[] = [];
-  public possibleColumns: string[] = [
-    "בחר",
-    "לקסמה עם ניקוד",
-    "לקסמה בלי ניקוד",
-    "חלק דיבר",
-    "שורש",
-    "מין שם העצם",
-    "משפט דוגמה 1",
-    "משפט דוגמה 2",
-    "תרגום 1 לעברית",
-    "תרגום 1 לאנגלית",
-    "תרגום 2 לעברית",
-    "תרגום 2 לאנגלית",
-    "תרגום 3 לעברית",
-    "תרגום 3 לאנגלית",
-    "צורת רבים 1",
-    "צורת רבים 2",
-    "צורת ריבוי שבור",
-    "צורת ריבוי בנקבה",
-    "צורת ריבוי רבים",
-    "צורת מקור",
-    "צורת נקבה",
-    "צורת זוגי",
-  ];
+  public matchedColumns: string[] = [];
+  public possibleColumns: KeyValue[] = possibleColumns;
 
   constructor(public lexemesService: LexemesService) {}
 
@@ -62,8 +43,9 @@ export class LexemesComponent {
       pluralOfPlural: "",
       sourceForm: "",
       femaleForm: "",
+      femalePluralForm: "",
       doubleForm: "",
-      articleForm: "",
+      root: "",
       source: "",
       creation: "",
     };
@@ -77,18 +59,47 @@ export class LexemesComponent {
   }
 
   matchColumns() {
-    let contents = [];
-    for (let line of this.tableToUpload.split("\n")) {
+    this.matchedColumns = [];
+    this.tableData = [];
+    for (let line of this.tableStr.split("\n")) {
       let lineContent = [];
       for (let cell of line.split("\t")) {
         lineContent.push(cell);
       }
-      contents.push(lineContent);
+      this.tableData.push(lineContent);
     }
 
-    this.topLine = contents[0];
-    this.secondLine = contents[1];
+    this.topLine = this.tableData[0];
+    this.secondLine = this.tableData[1];
   }
 
-  upload() {}
+  upload() {
+    if(!this.tableData.length){
+      alert('nothing to upload');
+    }
+
+    let wordsDefinitions: KeyValue[][] = [];
+    let lineIndex = 0;
+    for(let line of this.tableData){
+      lineIndex++;
+      //skip first line
+      if(lineIndex == 1){
+        continue;
+      }
+
+      let columnIndex = 0;
+      let word: KeyValue[] = [];
+      for(let column of line){
+        if(this.matchedColumns[columnIndex]){
+          let definition: KeyValue = {
+            key: this.matchedColumns[columnIndex],
+            value: column,
+          };
+          word.push(definition);
+        }
+        columnIndex++;
+      }
+      wordsDefinitions.push(word);
+    }
+  }
 }

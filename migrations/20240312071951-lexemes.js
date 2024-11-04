@@ -94,11 +94,15 @@ exports.up = function (db, callback) {
         type: "string",
         length: 400,
       },
+      femalePluralForm: {
+        type: "string",
+        length: 400,
+      },
       doubleForm: {
         type: "string",
         length: 400,
       },
-      articleForm: {
+      root: {
         type: "string",
         length: 400,
       },

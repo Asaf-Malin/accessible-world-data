@@ -18,8 +18,9 @@ export interface Lexeme {
   pluralOfPlural: string;
   sourceForm: string;
   femaleForm: string;
+  femalePluralForm: string;
   doubleForm: string;
-  articleForm: string;
+  root: string;
   source: string;
   creation: string;
 }
