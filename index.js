@@ -6,8 +6,7 @@ const cors = require("cors");
 const indexRouter = require("./router.js");
 app.use(cors());
 
-app.use(bodyParser.json());
-
+app.use(bodyParser.json({limit: '50mb'}));
 app.use(
   bodyParser.urlencoded({
     extended: true,
