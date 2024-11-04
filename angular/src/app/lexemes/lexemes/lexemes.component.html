@@ -1,63 +1,69 @@
-<div >
+<div>
   <br />
   חיפוש מילה:
   <input [(ngModel)]="searchTerm" />
   <button (click)="search()">חפש</button>
 
   <div *ngIf="afterSearch">
-    <br>לקסמה עם ניקוד: <input [(ngModel)]="currentLexeme.lexemeWithVowels">
-    <br>לקסמה בלי ניקוד: <input [(ngModel)]="currentLexeme.lexemeWithoutVowels">
-    <br>חלק דיבר: <input [(ngModel)]="currentLexeme.partOfSpeech">
-    <br>מגדר: <input [(ngModel)]="currentLexeme.gender">
-    <br>משפט דוגמה 1: <input [(ngModel)]="currentLexeme.exampleSentence1">
-    <br>משפט דוגמה 2: <input [(ngModel)]="currentLexeme.exampleSentence2">
-    <br>תרגום 1 עברית: <input [(ngModel)]="currentLexeme.translation1He">
-    <br>תרגום 1 אנגלית: <input [(ngModel)]="currentLexeme.translation1En">
-    <br>תרגום 2 עברית: <input [(ngModel)]="currentLexeme.translation2He">
-    <br>תרגום 2 אנגלית: <input [(ngModel)]="currentLexeme.translation2En">
-    <br>תרגום 3 עברית: <input [(ngModel)]="currentLexeme.translation3He">
-    <br>תרגום 3 אנגלית: <input [(ngModel)]="currentLexeme.translation3En">
-    <br>צורת רבים 1: <input [(ngModel)]="currentLexeme.plural1">
-    <br>צורת רבים 2: <input [(ngModel)]="currentLexeme.plural2">
-    <br>צורת ריבוי שבור: <input [(ngModel)]="currentLexeme.pluralBroken">
-    <br>רבים דרבים: <input [(ngModel)]="currentLexeme.pluralOfPlural">
-    <br>צורת מקור: <input [(ngModel)]="currentLexeme.sourceForm">
-    <br>צורת נקבה: <input [(ngModel)]="currentLexeme.femaleForm">
-    <br>צורת זוגי: <input [(ngModel)]="currentLexeme.doubleForm">
-    <br>צורת יידוע: <input [(ngModel)]="currentLexeme.articleForm">
-    <br>מקור ההגדרה: <input [(ngModel)]="currentLexeme.source">
+    <br />לקסמה עם ניקוד:
+    <input [(ngModel)]="currentLexeme.lexemeWithVowels" /> <br />לקסמה בלי
+    ניקוד: <input [(ngModel)]="currentLexeme.lexemeWithoutVowels" /> <br />חלק
+    דיבר: <input [(ngModel)]="currentLexeme.partOfSpeech" /> <br />מגדר:
+    <input [(ngModel)]="currentLexeme.gender" /> <br />משפט דוגמה 1:
+    <input [(ngModel)]="currentLexeme.exampleSentence1" /> <br />משפט דוגמה 2:
+    <input [(ngModel)]="currentLexeme.exampleSentence2" /> <br />תרגום 1 עברית:
+    <input [(ngModel)]="currentLexeme.translation1He" /> <br />תרגום 1 אנגלית:
+    <input [(ngModel)]="currentLexeme.translation1En" /> <br />תרגום 2 עברית:
+    <input [(ngModel)]="currentLexeme.translation2He" /> <br />תרגום 2 אנגלית:
+    <input [(ngModel)]="currentLexeme.translation2En" /> <br />תרגום 3 עברית:
+    <input [(ngModel)]="currentLexeme.translation3He" /> <br />תרגום 3 אנגלית:
+    <input [(ngModel)]="currentLexeme.translation3En" /> <br />צורת רבים 1:
+    <input [(ngModel)]="currentLexeme.plural1" /> <br />צורת רבים 2:
+    <input [(ngModel)]="currentLexeme.plural2" /> <br />צורת ריבוי שבור:
+    <input [(ngModel)]="currentLexeme.pluralBroken" /> <br />רבים דרבים:
+    <input [(ngModel)]="currentLexeme.pluralOfPlural" /> <br />צורת מקור:
+    <input [(ngModel)]="currentLexeme.sourceForm" /> <br />צורת נקבה:
+    <input [(ngModel)]="currentLexeme.femaleForm" /> <br />צורת זוגי:
+    <input [(ngModel)]="currentLexeme.doubleForm" /> <br />צורת יידוע:
+    <input [(ngModel)]="currentLexeme.articleForm" /> <br />מקור ההגדרה:
+    <input [(ngModel)]="currentLexeme.source" />
   </div>
 
   <div>
     העלאת טבלה - העתק את הטבלה כטקסט לאזור העריכה ולאחר מכן שייך עמודות
-    <br>
+    <br />
     <textarea width="600" [(ngModel)]="tableToUpload"></textarea>
-    <br>
+    <br />
     <button (click)="matchColumns()">שיוך עמודות</button>
-    <br>
-    <div style="display: flex;">
+    <br />
+    <div style="display: flex">
       <div *ngIf="topLine.length">
         שם עמודה:
         <div class="cell" *ngFor="let column of topLine; let i = index">
-          {{column ? column : '&nbsp;'}}
+          {{ column ? column : "&nbsp;" }}
         </div>
       </div>
       <div *ngIf="secondLine.length">
         תוכן שורה ראשונה:
         <div class="cell" *ngFor="let column of secondLine; let i = index">
-          {{column ? column : '&nbsp;'}}
+          {{ column ? column : "&nbsp;" }}
         </div>
       </div>
       <div *ngIf="secondLine.length">
         שיוך:
         <div class="cell" *ngFor="let column of topLine; let i = index">
           <select class="possibleColumn">
-            <option *ngFor="let possibleColumn of possibleColumns" [value]="column">{{possibleColumn}}</option>
+            <option
+              *ngFor="let possibleColumn of possibleColumns"
+              [value]="column"
+            >
+              {{ possibleColumn }}
+            </option>
           </select>
         </div>
       </div>
     </div>
-    <br>
-    <button *ngIf="secondLine.length">העלאה</button>
+    <br />
+    <button *ngIf="secondLine.length" (click)="upload()">העלאה</button>
   </div>
 </div>

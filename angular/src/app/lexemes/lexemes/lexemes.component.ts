@@ -15,59 +15,58 @@ export class LexemesComponent {
   public topLine: string[] = [];
   public secondLine: string[] = [];
   public possibleColumns: string[] = [
-    'בחר',
-    'לקסמה עם ניקוד',
-    'לקסמה בלי ניקוד',
-    'חלק דיבר',
-    'שורש',
-    'מין שם העצם',
-    'משפט דוגמה 1',
-    'משפט דוגמה 2',
-    'תרגום 1 לעברית',
-    'תרגום 1 לאנגלית',
-    'תרגום 2 לעברית',
-    'תרגום 2 לאנגלית',
-    'תרגום 3 לעברית',
-    'תרגום 3 לאנגלית',
-    'צורת רבים 1',
-    'צורת רבים 2',
-    'צורת ריבוי שבור',
-    'צורת ריבוי בנקבה',
-    'צורת ריבוי רבים',
-    'צורת מקור',
-    'צורת נקבה',
-    'צורת זוגי',
+    "בחר",
+    "לקסמה עם ניקוד",
+    "לקסמה בלי ניקוד",
+    "חלק דיבר",
+    "שורש",
+    "מין שם העצם",
+    "משפט דוגמה 1",
+    "משפט דוגמה 2",
+    "תרגום 1 לעברית",
+    "תרגום 1 לאנגלית",
+    "תרגום 2 לעברית",
+    "תרגום 2 לאנגלית",
+    "תרגום 3 לעברית",
+    "תרגום 3 לאנגלית",
+    "צורת רבים 1",
+    "צורת רבים 2",
+    "צורת ריבוי שבור",
+    "צורת ריבוי בנקבה",
+    "צורת ריבוי רבים",
+    "צורת מקור",
+    "צורת נקבה",
+    "צורת זוגי",
   ];
-
 
   constructor(public lexemesService: LexemesService) {}
 
-  getEmptyLexeme(){
+  getEmptyLexeme() {
     return {
       id: 0,
-      lexemeWithVowels: '',
-      lexemeWithoutVowels: '',
-      partOfSpeech: '',
-      gender: '',
-      exampleSentence1: '',
-      exampleSentence2: '',
-      translation1He: '',
-      translation1En: '',
-      translation2He: '',
-      translation2En: '',
-      translation3He: '',
-      translation3En: '',
-      plural1: '',
-      plural2: '',
-      pluralBroken: '',
-      pluralOfPlural: '',
-      sourceForm: '',
-      femaleForm: '',
-      doubleForm: '',
-      articleForm: '',
-      source: '',
-      creation: '',
-    }
+      lexemeWithVowels: "",
+      lexemeWithoutVowels: "",
+      partOfSpeech: "",
+      gender: "",
+      exampleSentence1: "",
+      exampleSentence2: "",
+      translation1He: "",
+      translation1En: "",
+      translation2He: "",
+      translation2En: "",
+      translation3He: "",
+      translation3En: "",
+      plural1: "",
+      plural2: "",
+      pluralBroken: "",
+      pluralOfPlural: "",
+      sourceForm: "",
+      femaleForm: "",
+      doubleForm: "",
+      articleForm: "",
+      source: "",
+      creation: "",
+    };
   }
 
   search() {
@@ -77,12 +76,12 @@ export class LexemesComponent {
     });
   }
 
-  matchColumns(){
+  matchColumns() {
     this.tableToUpload;
     let contents = [];
-    for(let line of this.tableToUpload.split('\n')){
+    for (let line of this.tableToUpload.split("\n")) {
       let lineContent = [];
-      for(let cell of line.split('\t')){
+      for (let cell of line.split("\t")) {
         lineContent.push(cell);
       }
       contents.push(lineContent);
@@ -91,4 +90,6 @@ export class LexemesComponent {
     this.topLine = contents[0];
     this.secondLine = contents[1];
   }
+
+  upload() {}
 }
