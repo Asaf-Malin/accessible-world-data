@@ -5,6 +5,11 @@
   <input [(ngModel)]="searchTerm" />
   <button (click)="search()">חפש</button>
 
+  <br><br>
+  הצג מילה שלא הועלתה לוויקינתונים: 
+  <button (click)="getNextWord()">הצג</button>
+  <br><br>
+
   <div *ngIf="afterSearch">
     <div *ngFor="let column of possibleColumns">
       <div>{{column.value}}: </div>

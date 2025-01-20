@@ -17,6 +17,12 @@ export class LexemesService {
     );
   }
 
+  getNextWord() {
+    return this.http.get<Lexeme>(
+      environment.apiEndPoint + "getNextWord",
+    );
+  }
+
   createLexemes(lexemes: Lexeme[]) {
     return this.http.post<Lexeme[]>(
       environment.apiEndPoint + "createLexemes", lexemes

@@ -6,6 +6,7 @@ const checkAuth = require("./middleware/check-auth");
 const { upload } = require("./controllers/upload.controller");
 const {
   getLexeme,
+  getNextWord,
   createLexemes,
   updateLexeme,
 } = require("./controllers/lexemes.controller");
@@ -24,6 +25,12 @@ router.post("/upload", (req, res) => {
 router.get("/getLexeme", (req, res) => {
   if (checkAuth(req, res)) {
     return getLexeme(req, res);
+  }
+});
+
+router.get("/getNextWord", (req, res) => {
+  if (checkAuth(req, res)) {
+    return getNextWord(req, res);
   }
 });
 

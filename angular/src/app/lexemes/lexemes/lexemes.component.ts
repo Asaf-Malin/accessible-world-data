@@ -79,6 +79,13 @@ export class LexemesComponent {
     });
   }
 
+  getNextWord(){
+    this.lexemesService.getNextWord().subscribe((data) => {
+      this.currentLexeme = data;
+      this.afterSearch = true;
+    });
+  }
+
   upload() {
     if(!this.tableData.length){
       alert('nothing to upload');

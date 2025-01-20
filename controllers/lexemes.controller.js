@@ -14,6 +14,19 @@ exports.getLexeme = async (req, res) => {
     });
 };
 
+exports.getNextWord = async (req, res) => {
+  knex(tableName)
+  .where({ wikidataId: null })
+  .first()
+  .then((lexeme) => {
+      if (!lexeme) {
+        res.status(200).json({});
+      } else {
+        res.status(200).json(lexeme);
+      }
+    });
+};
+
 exports.createLexemes = async (req, res) => {
   for(let lexeme of req.body){
     lexeme.creation = new Date();
